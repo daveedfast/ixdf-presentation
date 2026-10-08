@@ -123,14 +123,15 @@ a { color: var(--blue); }
 /* ---------- Intro ---------- */
 
 .intro {
+	padding-bottom: calc(var(--pad) + 3rem) !important;
 	background: var(--paper-alt);
 	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 	align-items: center;
 	gap: 3vw;
 	padding: var(--pad);
 }
-.intro h2 { margin-bottom: 2.5rem; }
-.intro p { color: #7a7a85; font-family: var(--font-head); font-size: 1.35em; line-height: 1.4; margin-bottom: 1.6em; }
+.intro h2 { margin-bottom: clamp(1rem, 3vh, 2.5rem); }
+.intro p { color: #7a7a85; font-family: var(--font-head); font-size: clamp(0.95rem, min(1.3vw, 2.25vh), 1.45rem); line-height: 1.45; margin-bottom: 0.9em; }
 .intro img { width: 100%; height: auto; }
 
 /* ---------- Typography ---------- */
