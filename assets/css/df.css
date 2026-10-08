@@ -1,0 +1,275 @@
+/* DF Interview Deck — styling from David-Fast-Design-Presentation.pdf
+   Layout: split slides adapted from Paradigm Shift (header left / content right) */
+
+:root {
+	--blue: #2222d9;
+	--blue-deep: #0d0fa8;
+	--ink: #1c1c28;
+	--body: #3a3a48;
+	--muted: #8e8e98;
+	--paper: #ffffff;
+	--paper-alt: #f9f9fa;
+	--rule: #e6e6ec;
+
+	--font-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+	--font-head: "Inter", "Helvetica Neue", Arial, sans-serif;
+	--font-sub: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+	--font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+
+	--pad: clamp(1.5rem, 5vw, 6rem);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+
+body {
+	background: var(--paper);
+	color: var(--body);
+	font-family: var(--font-body);
+	font-size: clamp(16px, 1.15vw, 21px);
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--blue); }
+
+/* ---------- Slide frame ---------- */
+
+.slide {
+	position: relative;
+	min-height: 100vh;
+	min-height: 100svh;
+	scroll-snap-align: start;
+	display: grid;
+	overflow: hidden;
+}
+
+/* DF monogram */
+.df-mark {
+	position: absolute;
+	top: clamp(1rem, 2.5vw, 2.6rem);
+	right: clamp(1rem, 2.5vw, 2.6rem);
+	width: 2.9rem;
+	height: 2.9rem;
+	display: grid;
+	place-items: center;
+	background: var(--blue);
+	color: #fff;
+	font-family: "Bodoni Moda", Didot, "Times New Roman", serif;
+	font-weight: 700;
+	font-size: 1.35rem;
+	letter-spacing: -0.06em;
+	z-index: 5;
+	text-decoration: none;
+}
+.df-mark.on-blue { background: #fff; color: var(--blue); }
+
+/* Blue divider textures (from the PDF's divider slides) */
+.leaf {
+	background-color: var(--blue);
+	background-image: url("../../images/df/cover-leaf.jpg");
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+}
+.leaf.t-bark { background-image: url("../../images/df/bark.jpg"); }
+.leaf.t-anthurium { background-image: url("../../images/df/anthurium.jpg"); }
+.leaf.t-monstera-xl { background-image: url("../../images/df/monstera-xl.jpg"); }
+
+/* ---------- Cover ---------- */
+
+.cover {
+	align-content: center;
+	padding: var(--pad) calc(var(--pad) * 1.6);
+}
+.cover h1 {
+	font-family: var(--font-display);
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: clamp(3rem, 8.2vw, 9.5rem);
+	line-height: 0.86;
+	letter-spacing: -0.045em;
+}
+.cover .sub {
+	font-family: var(--font-sub);
+	font-size: clamp(1.4rem, 2.6vw, 2.8rem);
+	margin-top: 3.5rem;
+}
+.cover .hint {
+	font-family: var(--font-sub);
+	font-size: clamp(1rem, 1.6vw, 1.6rem);
+	margin-top: 4rem;
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+}
+.cover .hint .arrow { font-size: 2.2em; line-height: 1; }
+
+/* ---------- Intro ---------- */
+
+.intro {
+	background: var(--paper-alt);
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	align-items: center;
+	gap: 3vw;
+	padding: var(--pad);
+}
+.intro h2 { margin-bottom: 2.5rem; }
+.intro p { color: #7a7a85; font-family: var(--font-head); font-size: 1.35em; line-height: 1.4; margin-bottom: 1.6em; }
+.intro img { width: 100%; height: auto; }
+
+/* ---------- Typography ---------- */
+
+.eyebrow {
+	font-family: var(--font-head);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	font-size: 0.82em;
+	color: var(--muted);
+}
+h2, .headline {
+	font-family: var(--font-head);
+	font-weight: 700;
+	color: var(--blue);
+	letter-spacing: -0.02em;
+	line-height: 1.12;
+	font-size: clamp(1.9rem, 3vw, 3.4rem);
+}
+
+/* ---------- Question split (template header | content) ---------- */
+
+.qa {
+	grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+}
+
+.qa > header {
+	padding: calc(var(--pad) * 0.9) var(--pad) var(--pad);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 1.6rem;
+}
+.qa > header { padding-top: calc(var(--pad) * 1.4); }
+.qa > header .eyebrow { color: #fff; font-size: clamp(0.85rem, 1.05vw, 1.15rem); }
+.qa > header .question {
+	font-family: var(--font-head);
+	font-weight: 700;
+	font-size: clamp(1.6rem, 2.6vw, 3rem);
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+	color: #fff;
+}
+
+.qa > .content {
+	padding: calc(var(--pad) * 0.9) calc(var(--pad) * 1.1) var(--pad);
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+	justify-content: center;
+}
+.qa > .content p { max-width: 46em; }
+
+ul.arrows { list-style: none; display: grid; gap: 0.9rem; }
+ul.arrows li { position: relative; padding-left: 2.1em; color: var(--ink); }
+ul.arrows li::before { content: "→"; position: absolute; left: 0; color: var(--ink); }
+
+/* Supporting media for an answer */
+.media {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+	gap: 1rem;
+	margin-top: 0.5rem;
+}
+.media figure {
+	background: var(--paper-alt);
+	border: 1px solid var(--rule);
+	border-radius: 6px;
+	overflow: hidden;
+	box-shadow: 0 18px 40px -24px rgba(13, 15, 120, 0.35);
+}
+.media figure img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16 / 10; }
+.media figcaption { font-size: 0.8em; color: var(--muted); padding: 0.6rem 0.8rem; }
+
+/* Placeholder until answers are written */
+.placeholder {
+	border: 2px dashed #c9c9f4;
+	border-radius: 6px;
+	padding: 1.2rem 1.4rem;
+	color: #6b6bd0;
+	background: #f5f5ff;
+	font-size: 0.95em;
+}
+
+/* ---------- Closing ---------- */
+
+.closing { align-content: center; padding: var(--pad) calc(var(--pad) * 1.6); }
+.closing h1 {
+	font-family: var(--font-head);
+	font-weight: 700;
+	font-size: clamp(2.4rem, 5.4vw, 6rem);
+	line-height: 1.05;
+	letter-spacing: -0.025em;
+	max-width: 14em;
+	margin-top: 1.5rem;
+}
+.closing p { font-family: var(--font-sub); font-size: clamp(1.2rem, 2vw, 2rem); margin-top: 2.5rem; }
+.closing a { color: #fff; }
+
+/* ---------- Deck chrome ---------- */
+
+.counter {
+	position: fixed;
+	right: clamp(1rem, 2.5vw, 2.6rem);
+	bottom: clamp(1rem, 2.2vw, 2.2rem);
+	font-family: var(--font-sub);
+	font-size: 0.85rem;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+	z-index: 10;
+	mix-blend-mode: difference;
+	filter: invert(1) grayscale(1);
+}
+.progress {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	background: var(--blue);
+	z-index: 10;
+	transition: width 0.3s ease;
+}
+
+/* Fade-in on arrival */
+.slide .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.slide.is-active .reveal { opacity: 1; transform: none; }
+.slide.is-active .reveal:nth-child(2) { transition-delay: 0.08s; }
+.slide.is-active .reveal:nth-child(3) { transition-delay: 0.16s; }
+.slide.is-active .reveal:nth-child(4) { transition-delay: 0.24s; }
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	.slide .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Small screens: stack the split ---------- */
+
+@media (max-width: 860px) {
+	html { scroll-snap-type: none; }
+	.slide { min-height: auto; }
+	.cover, .closing { min-height: 100svh; padding: 5rem 1.25rem; }
+	.intro { grid-template-columns: 1fr; padding: 5rem 1.25rem 3rem; }
+	.qa { grid-template-columns: 1fr; }
+	.qa > header { padding: 4.5rem 1.25rem 2.5rem; }
+	.qa > .content { padding: 2.5rem 1.25rem 4rem; }
+	.counter { display: none; }
+	.slide .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+	html { scroll-snap-type: none; }
+	.slide { page-break-after: always; min-height: 100vh; }
+	.slide .reveal { opacity: 1; transform: none; }
+	.counter, .progress { display: none; }
+}
