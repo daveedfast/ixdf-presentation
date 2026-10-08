@@ -84,6 +84,9 @@
 	}, { passive: true });
 	window.addEventListener('resize', function () { setActive(activeFromScroll()); });
 
+	// Let #slide links decide the starting position, not the browser's remembered scroll.
+	if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 	var start = location.hash ? slides.findIndex(function (s) { return '#' + s.id === location.hash; }) : 0;
 	if (start > 0) slides[start].scrollIntoView();
 	setActive(start > 0 ? start : activeFromScroll());
