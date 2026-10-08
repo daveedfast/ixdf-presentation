@@ -245,9 +245,9 @@ strong { color: var(--ink); }
 /* Case-study blocks inside a long answer */
 .project { display: flex; flex-direction: column; gap: 1.1rem; padding-top: 3rem; padding-bottom: 2rem; margin-top: 2.5rem; border-top: 1px solid var(--rule); }
 .project .headline { font-size: clamp(1.5rem, 2.1vw, 2.3rem); }
-/* Hero images bleed edge to edge across the answer panel, cropped (never stretched) to one banner shape */
+/* Hero images bleed edge to edge across the answer panel, showing the whole image at its natural shape */
 .project-hero { margin: 0 calc(var(--pad) * -1.1) 1.4rem; overflow: hidden; background: var(--paper-alt); }
-.project-hero img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
+.project-hero img { display: block; width: 100%; height: auto; }
 .project-hero figcaption { font-size: 0.8em; color: var(--muted); padding: 0.6rem 0.8rem; }
 .project-hero figcaption a { color: inherit; }
 
