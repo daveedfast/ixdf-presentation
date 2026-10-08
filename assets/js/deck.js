@@ -56,6 +56,8 @@
 		if (e.metaKey || e.ctrlKey || e.altKey) return;
 		var t = e.target.tagName;
 		if (t === 'INPUT' || t === 'TEXTAREA') return;
+		// Space should open a focused framework row or press a focused control, not change slides.
+		if (e.key === ' ' && (t === 'SUMMARY' || t === 'BUTTON' || t === 'A')) return;
 		switch (e.key) {
 			case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ':
 				e.preventDefault(); next(); break;
