@@ -247,6 +247,7 @@ strong { color: var(--ink); }
 
 /* Job-search lenses */
 .lenses { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.lenses.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .lens { background: var(--paper-alt); border: 1px solid var(--rule); border-radius: 6px; padding: 1.1rem 1.2rem; }
 .lens h4 { font-family: var(--font-head); font-weight: 700; color: var(--blue); font-size: 1.05em; margin-bottom: 0.35rem; }
 .lens p { font-size: 0.95em; }
@@ -327,6 +328,7 @@ strong { color: var(--ink); }
 	.qa { grid-template-columns: 1fr; }
 	.qa > header { position: static; height: auto; padding: 4.5rem 1.25rem 2.5rem; }
 	.qa > .content { min-height: 0; padding: 2.5rem 1.25rem 4rem; }
+	.lenses.cols-3 { grid-template-columns: 1fr; }
 	.counter { display: none; }
 	.slide .reveal { opacity: 1; transform: none; }
 	.scroll-down { animation: none; }
