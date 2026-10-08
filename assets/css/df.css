@@ -278,6 +278,22 @@ strong { color: var(--ink); }
 .fw-tools li { font-size: 0.82em; padding: 0.3rem 0.7rem; border-radius: 999px; border: 1px solid #c9c9f4; color: var(--blue); background: #fff; cursor: help; }
 .subhead { font-family: var(--font-head); font-weight: 700; color: var(--blue); font-size: 1.2em; }
 
+/* Curriculum audit (Q8) */
+.lens-by { font-size: 0.85em; color: var(--muted); margin-bottom: 0.4rem; }
+.course-card { display: flex; flex-direction: column; gap: 0.45rem; }
+.course-card h4 { margin-bottom: 0; }
+.lenses.cols-2 > .course-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.course-meta { font-family: var(--font-head); font-weight: 700; font-size: 0.72em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.course-note { font-size: 0.82em; color: var(--muted); margin-top: auto; }
+.course-lens { font-size: 0.78em; color: var(--blue); font-weight: 500; }
+.audit { list-style: none; display: grid; gap: 0.2rem; border-top: 1px solid var(--rule); }
+.audit li { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1rem; padding: 0.95rem 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.audit li p { font-size: 0.92em; margin-top: 0.2rem; }
+.tag { justify-self: start; font-family: var(--font-head); font-weight: 700; font-size: 0.7em; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.6rem; border-radius: 4px; margin-top: 0.15rem; }
+.tag-retire { background: #ececf2; color: #55556a; }
+.tag-merge { background: #e9e9ff; color: var(--blue); }
+.tag-rebuild { background: var(--blue); color: #fff; }
+
 /* Empty image slot */
 .slot-box { aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center; padding: 1rem; color: #6b6bd0; background: #f5f5ff; border: 2px dashed #c9c9f4; border-radius: 6px; font-size: 0.9em; }
 .media figure.slot { border: 0; box-shadow: none; background: none; }
@@ -357,6 +373,7 @@ strong { color: var(--ink); }
 	.lenses.cols-2, .lenses.cols-3 { grid-template-columns: 1fr; }
 	.fw-body { padding-left: 0.25rem; }
 	.fw-shift { grid-template-columns: 1fr; }
+	.audit li { grid-template-columns: 1fr; gap: 0.4rem; }
 	.fw-arrow { transform: rotate(90deg); justify-self: center; }
 	.counter { display: none; }
 	.slide .reveal { opacity: 1; transform: none; }
