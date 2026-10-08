@@ -243,6 +243,8 @@ strong { color: var(--ink); }
 .stat { border-left: 3px solid var(--blue); padding: 0.2rem 0 0.2rem 1rem; display: grid; gap: 0.2rem; }
 .stat .num { font-family: var(--font-head); font-weight: 700; color: var(--blue); font-size: clamp(1.4rem, 2vw, 2.1rem); line-height: 1.1; letter-spacing: -0.02em; }
 .stat .label { font-size: 0.9em; color: var(--muted); }
+.source { font-size: 0.8em; color: var(--muted); }
+.source a { color: inherit; }
 
 /* Job-search lenses */
 .lenses { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
