@@ -112,6 +112,8 @@ a { color: var(--blue); }
 	animation: nudge 2.2s ease-in-out infinite;
 }
 .scroll-down svg { width: 1.3rem; height: 1.3rem; }
+.scroll-down.on-light { color: var(--blue); border-color: var(--blue); }
+.scroll-down.on-light:hover, .scroll-down.on-light:focus-visible { background: var(--blue); color: #fff; }
 .scroll-down:hover, .scroll-down:focus-visible { background: #fff; color: var(--blue); outline: none; }
 @keyframes nudge {
 	0%, 100% { transform: translateY(0); }
@@ -319,6 +321,7 @@ strong { color: var(--ink); }
 	.slide { min-height: auto; }
 	.cover, .closing { min-height: 100svh; padding: 5rem 1.25rem; }
 	.intro { grid-template-columns: 1fr; padding: 5rem 1.25rem 3rem; }
+	.intro .scroll-down { position: static; margin: 0.5rem auto 0; }
 	.qa { grid-template-columns: 1fr; }
 	.qa > header { position: static; height: auto; padding: 4.5rem 1.25rem 2.5rem; }
 	.qa > .content { min-height: 0; padding: 2.5rem 1.25rem 4rem; }
