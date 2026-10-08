@@ -21,7 +21,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+html { scroll-snap-type: y proximity; }
 
 body {
 	background: var(--paper);
@@ -43,7 +43,7 @@ a { color: var(--blue); }
 	min-height: 100svh;
 	scroll-snap-align: start;
 	display: grid;
-	overflow: hidden;
+	overflow-x: clip;
 }
 
 /* DF monogram */
@@ -69,14 +69,14 @@ a { color: var(--blue); }
 /* Blue divider textures (from the PDF's divider slides) */
 .leaf {
 	background-color: var(--blue);
-	background-image: url("../../images/df/cover-leaf.jpg");
+	background-image: url("../../images/df/cover-leaf.jpg?v=2");
 	background-size: cover;
 	background-position: center;
 	color: #fff;
 }
-.leaf.t-bark { background-image: url("../../images/df/bark.jpg"); }
-.leaf.t-anthurium { background-image: url("../../images/df/anthurium.jpg"); }
-.leaf.t-monstera-xl { background-image: url("../../images/df/monstera-xl.jpg"); }
+.leaf.t-bark { background-image: url("../../images/df/bark.jpg?v=2"); }
+.leaf.t-anthurium { background-image: url("../../images/df/anthurium.jpg?v=2"); }
+.leaf.t-monstera-xl { background-image: url("../../images/df/monstera-xl.jpg?v=2"); }
 
 /* ---------- Cover ---------- */
 
@@ -97,15 +97,26 @@ a { color: var(--blue); }
 	font-size: clamp(1.4rem, 2.6vw, 2.8rem);
 	margin-top: 3.5rem;
 }
-.cover .hint {
-	font-family: var(--font-sub);
-	font-size: clamp(1rem, 1.6vw, 1.6rem);
-	margin-top: 4rem;
-	display: flex;
-	align-items: center;
-	gap: 1.25rem;
+.scroll-down {
+	position: absolute;
+	left: 50%;
+	bottom: clamp(1.5rem, 4vh, 3rem);
+	width: 3.25rem;
+	height: 3.25rem;
+	margin-left: -1.625rem;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	border: 2px solid rgba(255, 255, 255, 0.85);
+	border-radius: 50%;
+	animation: nudge 2.2s ease-in-out infinite;
 }
-.cover .hint .arrow { font-size: 2.2em; line-height: 1; }
+.scroll-down svg { width: 1.3rem; height: 1.3rem; }
+.scroll-down:hover, .scroll-down:focus-visible { background: #fff; color: var(--blue); outline: none; }
+@keyframes nudge {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(8px); }
+}
 
 /* ---------- Intro ---------- */
 
@@ -143,6 +154,14 @@ h2, .headline {
 
 .qa {
 	grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+	align-items: start;
+}
+
+.qa > header {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	height: 100svh;
 }
 
 .qa > header {
@@ -164,7 +183,9 @@ h2, .headline {
 }
 
 .qa > .content {
-	padding: calc(var(--pad) * 0.9) calc(var(--pad) * 1.1) var(--pad);
+	min-height: 100vh;
+	min-height: 100svh;
+	padding: calc(var(--pad) * 1.4) calc(var(--pad) * 1.1) calc(var(--pad) * 1.2);
 	display: flex;
 	flex-direction: column;
 	gap: 1.4rem;
@@ -249,7 +270,7 @@ ul.arrows li::before { content: "→"; position: absolute; left: 0; color: var(-
 .slide.is-active .reveal:nth-child(3) { transition-delay: 0.16s; }
 .slide.is-active .reveal:nth-child(4) { transition-delay: 0.24s; }
 @media (prefers-reduced-motion: reduce) {
-	html { scroll-behavior: auto; }
+	.scroll-down { animation: none; }
 	.slide .reveal { opacity: 1; transform: none; transition: none; }
 }
 
@@ -261,10 +282,11 @@ ul.arrows li::before { content: "→"; position: absolute; left: 0; color: var(-
 	.cover, .closing { min-height: 100svh; padding: 5rem 1.25rem; }
 	.intro { grid-template-columns: 1fr; padding: 5rem 1.25rem 3rem; }
 	.qa { grid-template-columns: 1fr; }
-	.qa > header { padding: 4.5rem 1.25rem 2.5rem; }
-	.qa > .content { padding: 2.5rem 1.25rem 4rem; }
+	.qa > header { position: static; height: auto; padding: 4.5rem 1.25rem 2.5rem; }
+	.qa > .content { min-height: 0; padding: 2.5rem 1.25rem 4rem; }
 	.counter { display: none; }
 	.slide .reveal { opacity: 1; transform: none; }
+	.scroll-down { animation: none; }
 }
 
 @media print {
