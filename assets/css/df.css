@@ -205,6 +205,13 @@ h2, .headline {
 }
 .qa > .content p { max-width: 46em; }
 
+/* Decorative background illustration behind an answer */
+.qa > .content.has-bg { position: relative; overflow: hidden; }
+.qa > .content.has-bg > * { position: relative; z-index: 1; }
+.qa > .content.has-bg > .bg-art { position: absolute; z-index: 0; right: -4%; bottom: 0; width: min(80%, 760px); height: auto; opacity: 0.16; pointer-events: none;
+	-webkit-mask-image: radial-gradient(ellipse 70% 70% at 55% 50%, #000 45%, transparent 100%);
+	mask-image: radial-gradient(ellipse 70% 70% at 55% 50%, #000 45%, transparent 100%); }
+
 ul.arrows { list-style: none; display: grid; gap: 0.9rem; }
 ul.arrows li { position: relative; padding-left: 2.1em; color: var(--ink); }
 ul.arrows li::before { content: "→"; position: absolute; left: 0; color: var(--ink); }
@@ -374,6 +381,7 @@ strong { color: var(--ink); }
 	.qa { grid-template-columns: 1fr; }
 	.qa > header { position: static; height: auto; padding: 4.5rem 1.25rem 2.5rem; }
 	.qa > .content { min-height: 0; padding: 2.5rem 1.25rem 4rem; }
+	.qa > .content.has-bg > .bg-art { width: 90%; right: -10%; bottom: 0; opacity: 0.1; }
 	.lenses.cols-2, .lenses.cols-3 { grid-template-columns: 1fr; }
 	.fw-body { padding-left: 0.25rem; }
 	.fw-shift { grid-template-columns: 1fr; }
