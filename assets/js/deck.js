@@ -90,4 +90,21 @@
 	var start = location.hash ? slides.findIndex(function (s) { return '#' + s.id === location.hash; }) : 0;
 	if (start > 0) slides[start].scrollIntoView();
 	setActive(start > 0 ? start : activeFromScroll());
+
+	// Web fonts and images can shift layout after load; keep a linked slide in place
+	// until the viewer starts navigating.
+	if (start > 0) {
+		var userMoved = false;
+		['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+			window.addEventListener(ev, function () { userMoved = true; }, { once: true, passive: true });
+		});
+		var realign = function () { if (!userMoved) { slides[start].scrollIntoView(); setActive(start); } };
+		if (document.fonts && document.fonts.ready) document.fonts.ready.then(realign);
+		window.addEventListener('load', realign);
+		if ('ResizeObserver' in window) {
+			var ro = new ResizeObserver(realign);
+			ro.observe(document.body);
+			setTimeout(function () { ro.disconnect(); }, 5000);
+		}
+	}
 })();
