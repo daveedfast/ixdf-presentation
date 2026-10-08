@@ -251,6 +251,10 @@ strong { color: var(--ink); }
 .project-hero figcaption { font-size: 0.8em; color: var(--muted); padding: 0.6rem 0.8rem; }
 .project-hero figcaption a { color: inherit; }
 
+/* Smaller project images: two side by side, filling the row at one shape (cropped, never stretched) */
+.project .media { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+.project .media figure:not(.span-2) img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center; }
+
 /* Big numbers */
 .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; max-width: 40rem; }
 .stat { border-left: 3px solid var(--blue); padding: 0.2rem 0 0.2rem 1rem; display: grid; gap: 0.2rem; }
@@ -383,6 +387,7 @@ strong { color: var(--ink); }
 	.qa > header { position: static; height: auto; padding: 4.5rem 1.25rem 2.5rem; }
 	.qa > .content { min-height: 0; padding: 2.5rem 1.25rem 4rem; }
 	.project-hero { margin-left: -1.25rem; margin-right: -1.25rem; }
+	.project .media { grid-template-columns: 1fr; }
 	.qa > .content.has-bg > .bg-art { width: 90%; right: -10%; bottom: 0; opacity: 0.1; }
 	.lenses.cols-2, .lenses.cols-3 { grid-template-columns: 1fr; }
 	.fw-body { padding-left: 0.25rem; }
