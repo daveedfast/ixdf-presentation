@@ -271,6 +271,8 @@ strong { color: var(--ink); }
 .lens h4 svg { width: 1.3em; height: 1.3em; flex: none; }
 .lenses.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .lens p { font-size: 0.95em; }
+.lens ul.arrows { gap: 0.6rem; }
+.lens ul.arrows li { font-size: 0.93em; }
 
 /* Expandable framework rows (Q8) */
 .framework { border-top: 1px solid var(--rule); }
